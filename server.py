@@ -138,3 +138,5 @@ def articles_detailed():
 
     return jsonify(detailed_articles)
 
+if __name__ == '__main__':
+    app.run(debug=True)
