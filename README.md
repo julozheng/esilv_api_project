@@ -66,7 +66,7 @@ The project provides the following endpoints:
 1. Clone the repository.
 2. Install the required dependencies using the following command:
 
--pip install requests beautifulsoup4 textblob Flask
+- pip install requests beautifulsoup4 textblob Flask
 
 
 3. Run the Flask application with `python server.py`.
