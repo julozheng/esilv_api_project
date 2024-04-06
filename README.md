@@ -21,9 +21,61 @@ You can choose website about many subject like:
     - Information on new models.
     - Research papers, such as those from ArXiv or Google DeepMind.
 
+
+
 ### Process
 
     1. Each group should create a branch named after the names of the group members.
     2. Inside the branch, create a working directory named after the chosen site.
     3. Add a file named composition.txt that lists the members of the group.
     4. Add a section below these rules to explain your project, describe the created endpoints and their uses, and provide examples.
+
+
+# OpenAI Blog Scraper & Sentiment Analysis
+
+This project is a Flask web application that provides endpoints to scrape and analyze articles from the OpenAI blog.
+
+## Project Overview
+
+The project consists of several components:
+
+1. **Flask Setup**: The project uses Flask, a web development framework for Python, to create the RESTful API endpoints.
+
+2. **Scraping OpenAI Blog**: The `scrape_openai_blog()` function scrapes the OpenAI blog homepage to gather information about the latest articles. It collects data such as article titles, publication dates, and URLs.
+
+3. **Fetching Article Details**: The `fetch_article_details()` function retrieves details for a specific article such as author name and description by scraping the article's page.
+
+4. **Fetching Article Content**: The `fetch_article_content()` function retrieves the full content of a specific article by scraping its page.
+
+5. **Sentiment Analysis**: The `analyze_sentiment()` function uses TextBlob to perform sentiment analysis on the content of an article, categorizing it as positive, negative, or neutral based on polarity.
+
+## Endpoints
+
+The project provides the following endpoints:
+
+- `/ml/<int:number>`: This endpoint takes an article number as input and returns the sentiment analysis result for that article.
+- `/article/<path:article_path>`: This endpoint takes the path to an article and returns its content.
+- `/get_data`: This endpoint returns a simplified version of article data, including titles and publication dates, for all articles.
+- `/articles`: This endpoint returns detailed information about all articles, including titles, publication dates, authors, and descriptions.
+
+## Examples
+
+- To get sentiment analysis for the third article: `/ml/2`
+- To get content of an article with path "some-article-path": `/article/some-article-path`
+- To get simplified article data: `/get_data`
+- To get detailed information about all articles: `/articles`
+
+## How to Use
+
+1. Clone the repository.
+2. Install the required dependencies using the following command:
+
+- pip install requests beautifulsoup4 textblob Flask
+
+3. Run the Flask application with `python server.py`.
+4. Access the provided endpoints to retrieve OpenAI blog data and perform sentiment analysis.
+
+## Testing
+
+A test program `testing.py` is provided to demonstrate how to call the API endpoints, it fetch data from the site about the article by calling the api and present it in terminal .
+
